@@ -1,3 +1,5 @@
+import 'package:stock_qr/routes/routes.dart';
+
 import 'core/locator.dart';
 import 'core/providers.dart';
 import 'core/services/navigator_service.dart';
@@ -18,6 +20,7 @@ class MainApplication extends StatelessWidget {
       child: MaterialApp(
         navigatorKey: locator<NavigatorService>().navigatorKey,
         home: HomeView(),
+        routes: getAplicationRoute(),
       ),
     );
   }

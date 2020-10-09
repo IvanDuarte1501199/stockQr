@@ -13,12 +13,10 @@ class HomeView extends StatelessWidget {
     HomeViewModel viewModel = HomeViewModel();
     return ViewModelProvider<HomeViewModel>.withConsumer(
         viewModel: viewModel,
-        onModelReady: (viewModel) {
-          // Do something once your viewModel is initialized
-        },
+        onModelReady: (viewModel) {},
         builder: (context, viewModel, child) {
           return ScreenTypeLayout(
-            mobile: _HomeMobile(viewModel),
+            mobile: _HomeMobile(viewModel, context),
           );
         });
   }
