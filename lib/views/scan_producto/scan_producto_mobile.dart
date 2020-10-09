@@ -28,7 +28,7 @@ class _ScanProductoMobile extends StatelessWidget {
   Widget _appBody() {
     return Center(
         child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      // crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Container(
@@ -37,7 +37,7 @@ class _ScanProductoMobile extends StatelessWidget {
             icon: FaIcon(
               FontAwesomeIcons.barcode,
               color: Colors.white,
-            ), //`Icon` to display
+            ),
             label: Text(
               'Escanear',
               style: TextStyle(color: Colors.white),
@@ -47,13 +47,51 @@ class _ScanProductoMobile extends StatelessWidget {
             },
           ),
         ),
-        Wrap(
-          direction: Axis.horizontal,
-          children: [
-            Text("data"),
-            Text("data"),
-          ],
+        Container(
+          child: Wrap(
+            direction: Axis.horizontal,
+            alignment: WrapAlignment.center,
+            children: [
+              Container(
+                width: 300,
+                child: TextField(
+                  decoration: const InputDecoration(
+                    icon: FaIcon(FontAwesomeIcons.barcode),
+                    labelText: 'Codigo',
+                  ),
+                  controller: viewModel.controller,
+                  onChanged: (value) {
+                    viewModel.barcode = value;
+                  },
+                ),
+              ),
+              Container(
+                child: SizedBox.fromSize(
+                  size: Size(50, 50),
+                  child: ClipOval(
+                    child: Material(
+                      color: Colors.black,
+                      child: InkWell(
+                        splashColor: Colors.white,
+                        onTap: () async {},
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.white,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
+        // Text("data"),
         Text(""),
       ],
     ));
